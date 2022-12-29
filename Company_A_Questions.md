@@ -104,7 +104,7 @@ Overall, adding a very large input layer to a neural network can lead to improve
 21. Explain what an Auto Encoder is
 
 ### Data Structures
-21. What type of ds does python use for dictionaries?
+21. What type of DS does python use for dictionaries?
 22. What are the advantages of using a hash map?
 23. What is the time complexity for searching for a value in array?
 
