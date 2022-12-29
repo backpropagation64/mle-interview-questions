@@ -1,1 +1,1 @@
-### Chapter 8. Machine learning algorithms
+## Chapter 8. Machine learning algorithms

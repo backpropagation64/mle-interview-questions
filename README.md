@@ -1,5 +1,5 @@
 # MLE Interview Questions
-Interview Questions and Answers for Machine Learning Engineer roles
+Interview Questions and Answers for Machine Learning Engineer role.
 
 ### Chip Huyen's book [questions and answers](ml-interviews-book/ml-interviews-book.md)
 

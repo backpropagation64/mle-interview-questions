@@ -1,6 +1,6 @@
-### 5 Math
+## 5 Math
 
-#### 5.1.1 Vectors
+### 5.1.1 Vectors
 
 1. Dot product
    1. [E] What’s the geometric interpretation of the dot product of two vectors?
@@ -51,4 +51,4 @@
    ```
    
 
-#### 5.2.1 Probability
+### 5.2.1 Probability
