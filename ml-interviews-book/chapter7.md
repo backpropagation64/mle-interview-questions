@@ -40,27 +40,118 @@ For example, suppose you are trying to build a machine learning model to predict
 In summary, Occam's razor is a principle that suggests that the simplest explanation for a phenomenon is generally the most likely to be correct. In machine learning, it is often applied in the context of model selection, where it suggests that a simpler model with fewer parameters is generally preferred over a more complex model with more parameters.
 ```
 4. [E] What are the conditions that allowed deep learning to gain popularity in the last decade?
+```text
+There are several factors that have contributed to the popularity of deep learning in recent years:
+
+- Increased computational power: Deep learning algorithms require a lot of computational power to train. In the last decade, there has been a significant increase in the availability of powerful hardware, such as graphics processing units (GPUs), which are well-suited for deep learning tasks. This has made it possible to train deep learning models on large datasets.
+
+- Availability of large datasets: In order to train effective deep learning models, large amounts of labeled data are needed. In recent years, there has been an explosion of data available on the internet, as well as an increase in the number of companies and organizations collecting and sharing data. This has made it possible to train deep learning models on a wide range of tasks.
+
+- Improvements in algorithms: There have been significant advances in the development of deep learning algorithms in recent years. Researchers have been able to improve the performance of deep learning models by developing new architectures and training techniques.
+
+- Broader adoption of machine learning: Deep learning is a subfield of machine learning, which has also gained popularity in recent years. The success of deep learning has contributed to the broader adoption of machine learning in a variety of industries and applications.
+
+- Real-world successes: The success of deep learning in a variety of real-world tasks, such as image and speech recognition, has contributed to its popularity. Deep learning models have achieved state-of-the-art performance on many tasks, and this has led to a growing interest in using deep learning for a wide range of applications.
+```
 5. [M] If we have a wide NN and a deep NN with the same number of parameters, which one is more expressive and why?
 ```text
 A wide neural network refers to a neural network with a large number of units or neurons in each layer, while a deep neural network refers to a neural network with a large number of layers. In general, a wide neural network is more expressive than a deep neural network with the same number of parameters, because it has more units in each layer and is therefore able to model more complex functions. 
 If you have a wide neural network and a deep neural network with the same number of parameters, the wide neural network is generally more expressive because it has a higher model capacity. This is because the wide neural network has more units in each layer and is therefore able to model more complex functions. However, it is important to note that this is not always the case, and the relative expressiveness of a wide versus deep neural network will depend on the specific architecture and the data being modeled.
 ```
 6. [H] The Universal Approximation Theorem states that a neural network with 1 hidden layer can approximate any continuous function for inputs within a specific range. Then why can’t a simple neural network reach an arbitrarily small positive error?
+```text
+The Universal Approximation Theorem does not mean that a neural network with a single hidden layer can reach an arbitrarily small positive error on all tasks. There are several reasons why this may not be possible:
+
+1. Limited capacity: A neural network with a single hidden layer has limited capacity, and may not be able to capture the complexity of the target function if it is very complex. As a result, it may not be able to reach an arbitrarily small positive error.
+
+2. Overfitting: If a neural network is trained on a limited amount of data, it may overfit to the training data and perform poorly on unseen data. This can lead to a higher error on the test set.
+
+3. Local optima: During training, the neural network may get stuck in a local minimum of the loss function, which can result in a suboptimal solution. This can lead to a higher error on the test set.
+
+Lack of sufficient data: In some cases, there may not be enough labeled data available to train a neural network to an arbitrarily small positive error.
+```
 7. [E] What are saddle points and local minima? Which are thought to cause more problems for training large NNs?
+```text
+
+```
 8. Hyperparameters.
    1. [E] What are the differences between parameters and hyperparameters?
+   ```text
+   Parameters are the internal variables of a model that are learned during training. These include the weights and biases of a neural network, which are adjusted based on the training data to optimize the model's performance. Parameters are typically adjusted by the optimization algorithm during training, and they are specific to a particular task or dataset.
+    
+   Hyperparameters, on the other hand, are external variables that are set before training begins. They control the overall behavior of the model and are not learned during training. Examples of hyperparameters include the learning rate, the batch size, and the number of hidden units in a neural network. Hyperparameters are typically set by the practitioner, and they can significantly influence the model's performance.
+    ```
    2. [E] Why is hyperparameter tuning important?
+   ```text
+   Hyperparameter tuning is an important step in the process of training a deep learning model because it can significantly influence the model's performance. Hyperparameters control the overall behavior of a model, and choosing the right values for them can make a big difference in the model's ability to fit the data and generalize to new situations.
+
+   For example, in a neural network, the learning rate is a hyperparameter that controls the step size that the optimization algorithm takes when adjusting the weights and biases. If the learning rate is too high, the optimization algorithm may overshoot the minimum and oscillate, leading to slow or unstable convergence. If the learning rate is too low, the optimization algorithm may take too long to converge to a good solution. Choosing the right learning rate is therefore critical for successful training.
+   
+   Hyperparameter tuning can be time-consuming and require a lot of trial and error, but it is generally worth the effort because it can significantly improve the performance of a deep learning model. There are several methods for tuning hyperparameters, including manual search, grid search, and random search. It is also possible to use more advanced methods such as Bayesian optimization or evolutionary algorithms.
+   
+   Overall, hyperparameter tuning is important in deep learning because it allows practitioners to fine-tune the behavior of a model and improve its performance on a particular task or dataset.
+   ```
    3. [M] Explain algorithm for tuning hyperparameters.
+   ```text
+   There are several algorithms that can be used for tuning hyperparameters in deep learning, including manual search, grid search, random search, and more advanced methods such as Bayesian optimization and evolutionary algorithms. Here is a brief overview of each algorithm:
+
+   Manual search: This is the most basic method for tuning hyperparameters. It involves manually adjusting the values of the hyperparameters and evaluating the model's performance on a validation set. This process can be repeated until satisfactory performance is achieved.
+   
+   Grid search: This is a systematic method for exploring a range of hyperparameter values. The practitioner specifies a set of values for each hyperparameter, and the algorithm trains a model for each combination of hyperparameter values. The performance of each model is evaluated using a validation set, and the combination of hyperparameters that yields the best performance is selected.
+   
+   Random search: This method involves sampling random combinations of hyperparameter values and training a model for each combination. The performance of each model is evaluated using a validation set, and the combination of hyperparameters that yields the best performance is selected. This method can be more efficient than grid search because it does not require training a model for every combination of hyperparameter values.
+   
+   Bayesian optimization: This is a more advanced method that uses Bayesian statistics to model the underlying function that relates the hyperparameters to the model's performance. The algorithm uses this model to iteratively select the most promising combinations of hyperparameter values to try next, based on the previous results.
+   
+   Evolutionary algorithms: These are optimization algorithms that mimic the process of natural evolution to find the best combination of hyperparameter values. They involve generating a population of random hyperparameter values, evaluating the performance of each individual, and using evolutionary operators such as crossover and mutation to generate new individuals for the next generation. The process is repeated until satisfactory performance is achieved.
+   
+   Overall, the choice of algorithm for tuning hyperparameters will depend on the specific requirements of the task and the available resources. Some algorithms may be more suitable for certain types of tasks or hyperparameter ranges, and some may be more computationally efficient than others. It is often a good idea to try a few different algorithms to see which one works best for a particular task.
+   ```
    
 9. Classification vs. regression.
    1. [E] What makes a classification problem different from a regression problem?
-   2. [E] Can a classification problem be turned into a regression problem and vice versa?
+   ```text
+   In a classification problem, the output variable is a categorical variable, which means that it can take on a finite number of values or categories. For example, a model might be trained to classify email messages as spam or not spam, or to classify images of animals as cats, dogs, or birds. In a classification problem, the goal is to predict the class or category that an input belongs to.
 
+   In a regression problem, the output variable is a continuous variable, which means that it can take on any value within a range. For example, a model might be trained to predict the price of a house given its features (e.g., size, location, number of bedrooms), or to predict the stock price of a company given its financial data. In a regression problem, the goal is to predict a continuous value.
+
+   In summary, the main difference between classification and regression is the type of output variable that is being predicted. Classification involves predicting a categorical variable, while regression involves predicting a continuous variable.
+   ```
+   2. [E] Can a classification problem be turned into a regression problem and vice versa?
+   ```text
+   Yes, it is often possible to convert a classification problem into a regression problem and vice versa. Here are some examples of how this can be done:
+
+   Classification to regression: One way to convert a classification problem into a regression problem is to use a method called "ordinal encoding." This involves assigning a numerical value to each class, such that the difference between the values reflects the relative order or importance of the classes. For example, if a model is trained to classify email messages as spam or not spam, the classes could be encoded as 0 (not spam) and 1 (spam). The model could then be trained to predict the encoded values as a continuous output.
+
+   Regression to classification: One way to convert a regression problem into a classification problem is to define a set of threshold values that divide the output range into discrete classes. For example, if a model is trained to predict the price of a house, the output range could be divided into classes such as "cheap," "moderate," and "expensive." The model could then be trained to predict the class that a given input belongs to.
+
+   It is important to note that these conversion methods are not always appropriate and may not produce good results in all cases. The suitability of a particular conversion method will depend on the specifics of the task and the characteristics of the data. In general, it is usually best to use the appropriate type of problem for the task at hand, rather than trying to convert it to a different type.
+   ```
 10. Parametric vs. non-parametric methods.
     1. [E] What’s the difference between parametric methods and non-parametric methods? Give an example of each method.
+    ```text
+    In machine learning, parametric methods and non-parametric methods are two types of techniques that can be used to model and make predictions from data.
+
+    Parametric methods are based on the assumption that the data is generated from a specific type of probability distribution with a fixed set of parameters. These methods involve estimating the parameters of the distribution from the data and using them to make predictions. Examples of parametric methods include linear regression, logistic regression, and linear discriminant analysis.
+
+    Non-parametric methods, on the other hand, do not make any assumptions about the underlying distribution of the data. These methods can be more flexible than parametric methods because they do not rely on a fixed set of parameters. Examples of non-parametric methods include decision trees, k-nearest neighbors, and support vector machines.
+
+    In general, parametric methods are typically faster and more computationally efficient than non-parametric methods, but they may be less flexible and may not perform as well on complex or irregular data. Non-parametric methods can be more flexible, but they may require more data and computational resources to train.
+
+    It is important to note that the choice between parametric and non-parametric methods will depend on the specific requirements of the task and the characteristics of the data. In some cases, a parametric method may be the best choice, while in other cases a non-parametric method may be more appropriate.
+    ```
     2. [H] When should we use one and when should we use the other?
 11. [M] Why does ensembling independently trained models generally improve performance?
-12. [M] Why does ensembling independently trained models generally improve performance?
+    ```text
+    Ensembling is a machine learning technique that involves combining the predictions of multiple independently trained models to make a final prediction. Ensembling is often used to improve the performance of a model because it can reduce the variance and bias of the final prediction.
+
+    One reason why ensembling can improve performance is that it can reduce variance. When multiple models are trained independently, they are likely to make different errors due to randomness in the training data. By combining the predictions of these models, the overall error is likely to be reduced because the errors will tend to cancel out. This can lead to more stable and consistent predictions.
+
+    Another reason why ensembling can improve performance is that it can reduce bias. Individual models may have a bias towards certain patterns or features in the data, and this can limit their ability to generalize to new data. By combining the predictions of multiple models, the overall bias is likely to be reduced because the models are likely to have different biases. This can lead to better generalization and improved performance on new data.
+
+    Overall, ensembling is a powerful technique that can improve the performance of a model by reducing variance and bias. It is often used in conjunction with other techniques such as model selection and hyperparameter optimization to further improve the performance of a model.
+    ```
+12. [M] Why does L1 regularization tend to lead to sparsity while L2 regularization pushes weights closer to 0?
 13. [E] Why does an ML model’s performance degrade in production?
 14. [M] What problems might we run into when deploying large machine learning models?
 15. Your model performs really well on the test set but poorly in production.
