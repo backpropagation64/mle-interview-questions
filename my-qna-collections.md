@@ -329,3 +329,14 @@ Answering interesting interview questions from different topics (e.g. Bias and V
     
     - Compliance: Measuring bias also helps to ensure that the model is compliant with any legal or ethical regulations that may be in place. For example, certain discriminatory behavior may be illegal under certain laws such as the Fair Credit Reporting Act or the General Data Protection Regulation.
 
+#### 10. Let’s say we want to build a model to predict booking prices on Airbnb. Between linear regression and random forest regression, which model would perform better and why?
+
+    Between linear regression and random forest regression, it is likely that random forest regression would perform better in predicting booking prices on Airbnb.
+    
+    Linear regression is a simple and interpretable model that assumes a linear relationship between the independent variables and the dependent variable. It is useful when the relationship between the variables is well-understood and when the number of independent variables is relatively small. However, linear regression may not be able to capture complex non-linear relationships or interactions between variables.
+    
+    Random forest regression, on the other hand, is an ensemble method that builds multiple decision trees and combines their predictions to improve the overall accuracy of the model. Random forest is able to capture complex non-linear relationships and interactions between variables, and it is robust to outliers and noise in the data. It also handles high-dimensional data, and can identify the most important features that contribute to the target variable.
+    
+    In the case of predicting booking prices on Airbnb, the relationship between the independent variables (such as location, number of bedrooms, type of property, etc.) and the dependent variable (booking price) may be complex and non-linear. There may also be interactions between variables that a linear regression model would not be able to capture. Random forest regression is able to handle these complexities and would likely perform better in predicting booking prices on Airbnb.
+    
+    In summary, Random Forest Regression would perform better in predicting booking prices on Airbnb because of its ability to capture complex non-linear relationships, interactions between variables and handle high-dimensional data better than linear regression.
