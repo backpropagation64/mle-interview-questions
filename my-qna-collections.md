@@ -241,4 +241,91 @@ Answering interesting interview questions from different topics (e.g. Bias and V
       
       It is worth noting that fraud detection is a challenging task, and it is important to also consider ethical and legal issues related to the use of the data and the model's decisions, as well as to keep track of the model's performance over time and retrain it as needed.
        
-       
+#### 4. Can you give an example of deploying the model mentioned above to production ?
+
+    Once a fraud detection model is built and its performance is satisfactory, it can be deployed to a production environment to start detecting fraud in real-world transactions. Here's an example of how this might be done:
+  
+    - Model serving: The model would be deployed on a model serving platform, such as TensorFlow Serving, Seldon or Clipper, which allows the model to be accessed via an API endpoint.
+    - API endpoint: The API endpoint would be set up to take in new transaction data as input and return a prediction of whether or not the transaction is fraudulent.
+    - Real-time processing: The deployed model would process transactions in real-time as they happen and make predictions on whether a transaction is fraudulent or not.
+    - Integration with existing systems: The deployed model would be integrated with the existing systems of the credit card company, such as the transaction processing system, to flag potential fraudulent transactions for further investigation.
+    - Monitoring and Maintenance: The deployed model should be regularly monitored to ensure its performance is stable over time and its performance is still satisfactory. The model should also be retrained periodically with new data to improve its performance and adapt to new types of fraud.
+    - Compliance: It is important to consider ethical and legal issues related to the use of the data and the model's decisions. The deployed model should comply with regulations such as GDPR and use of data should be made transparent to the customers.
+
+#### 5. Let’s say that you’re an advertisement company that wants to increase revenue. You want to effectively match an advertisement to a user. What metric should you prioritize if you want to maximize revenue: click through rate or conversion rate? What machine learning algorithm would you use?
+    
+    If you're an advertisement company that wants to increase revenue, you should prioritize the conversion rate as the key metric to maximize revenue. Conversion rate is the percentage of users who take a desired action (such as making a purchase or signing up for a service) after seeing an advertisement. It is a better metric for revenue maximization because it measures the effectiveness of the advertisement in terms of generating revenue, rather than just clicks. A high click-through rate (CTR) can indicate that an ad is well-targeted, but it doesn't necessarily mean that the ad is generating revenue. A user might click on an ad but not convert.
+    There are many machine learning algorithm that can be used to match an advertisement to a user, but some of the most popular ones are:
+        - Decision Trees
+        - Random Forest 
+        - Gradient Boosting
+        - Neural Networks
+
+
+#### 6. Let’s say you work for a bank that gives out personal loans. Your co-worker develops a model that takes in customer inputs and returns if a loan should be given or not. a. What kind of model did the co-worker develop? b Another co-worker thinks they have developed a better model to predict defaults on the loans. Given that personal loans are monthly installments of payments, how would you measure the difference between the two credit risk models within a timeframe? c. What metrics would you track to measure the success of the new model?
+
+    a. It sounds like your co-worker has developed a binary classification model, which takes in customer inputs and returns if a loan should be given or not. Based on the input features provided by the customer such as income, credit score, debt-to-income ratio, employment history and so on, this model will predict the probability of the customer repaying the loan, and based on the threshold set, it will return the decision of whether to give the loan or not.
+    Some examples of binary classification models that could be used for this task are:
+    - Logistic Regression
+    - SVM
+    - Random Forest
+    - Gradient Boosting
+    -  Neural Networks 
+
+    b. To measure the difference between the two credit risk models for predicting defaults on personal loans, you could use performance metrics that are commonly used for evaluating binary classification models. Some examples of these metrics are:
+
+    - Accuracy
+    - F1-score: This is the harmonic mean of precision and recall, and it balances both metrics. It is a good metric to use when the data is imbalanced.
+    - ROC-AUC (Receiver Operating Characteristic - Area Under the Curve):
+    - Gini coefficient: 
+    
+    Gini coefficient and the AUC of the ROC curve statistic that are used for evaluating the performance of the models for imbalanced data. It is important to note that these metrics should be used in conjunction with each other and in the context of the business problem. For example, you may be willing to tolerate a lower accuracy in exchange for a higher recall, as it would mean that the model is able to identify more defaulters.
+
+
+#### 7. Let’s say you’re given all the different marketing channels along with their respective marketing costs at a company called Mode, that sells B2B analytics dashboards. What metrics would you use to determine the value of each marketing channel?
+
+    I would use the following metrics:
+      
+    - Cost per lead (CPL): This measures the cost of acquiring a new lead through a particular marketing channel. It is calculated by dividing the total cost of the marketing campaign by the number of leads generated. A lower CPL indicates a higher return on investment.
+
+    - Lead conversion rate (LCR): This measures the percentage of leads that are converted into paying customers. A high LCR indicates that the marketing channel is effective in generating high-quality leads.
+    
+    - Customer Acquisition Cost (CAC): This metric measures the cost of acquiring a new customer. It is calculated by dividing the total marketing and sales costs by the number of new customers acquired. A lower CAC indicates a higher return on investment.
+    
+    - Lifetime Value (LTV): This metric measures the total revenue generated by a customer over the lifetime of their relationship with the company. It allows you to understand the long-term value of a customer and how much you can afford to spend on acquiring them.
+    
+    - Return on Investment (ROI): This metric measures the return on investment of a marketing campaign by comparing the revenue generated to the cost of the campaign. A higher ROI indicates a better return on investment.
+    
+    - Net Promoter Score (NPS): This metric measures customer satisfaction and loyalty. It's calculated by asking customers how likely they are to recommend the product to a friend or colleague. A high NPS indicates a positive customer experience and high loyalty.
+    
+#### 8. Let’s say we have 1 million app rider journey trips in the city of Seattle. We want to build a model to predict ETA after a rider makes a ride request. How would we know if we have enough data to create an accurate enough model?  
+
+    To determine if you have enough data to create an accurate model to predict the estimated time of arrival (ETA) after a rider makes a ride request, you would need to consider the following:
+
+    - Data size: 1 million trips is a large dataset, which is generally sufficient to build a model. However, the quality of the data is also important. The data should be representative of the population of riders and should include a diverse range of trip characteristics, such as trip distance, time of day, and weather conditions.
+    
+    - Data diversity: The data should be diverse enough to account for different types of trips, and to generalize well to unseen data. The more diverse the data, the more robust the model will be.
+    
+    - Data quality: The data should be clean and relevant to the problem. Missing values, outliers and irrelevant features can degrade the performance of the model.
+    
+    - Model complexity: The complexity of the model should match the complexity of the problem, if the model is too simple it may not capture the complexity of the problem and if it's too complex it may overfit the data.
+    
+    - Evaluation metrics: It's important to evaluate the model performance by using appropriate evaluation metrics such as Mean Absolute Error (MAE), Mean Squared Error (MSE) or Root Mean Squared Error (RMSE) to assess the accuracy of the predictions.
+    
+    - Cross-validation: The performance of the model should be tested on unseen data by using cross-validation techniques such as k-fold cross-validation.
+      
+
+#### 9. Let’s say that you work as a data scientist at a food delivery company. You are tasked with building a model to predict food preparation times at a restaurant from the time when a customer sends in the order to when the meal is ready for the driver to pick up. What are some reasons why measuring bias would be important in building this particular model?
+
+    Measuring bias would be important in building a model to predict food preparation times at a restaurant for several reasons:
+    
+    - Fairness: Measuring bias helps ensure that the model is fair and treats all customers and restaurants equally. Without measuring bias, the model may inadvertently discriminate against certain groups of customers or restaurants, leading to poor service and potential legal issues.
+    
+    - Representativeness: Measuring bias ensures that the model is representative of the population of customers and restaurants that the food delivery company serves. Without measuring bias, the model may not accurately reflect the experience of certain groups of customers or restaurants, leading to poor predictions and a poor user experience.
+    
+    - Model's performance: Measuring bias helps evaluate the model's performance and its ability to generalize to unseen data. If the model is biased, it may not perform well on new data, leading to poor predictions and a poor user experience.
+    
+    - Business perspective: Measuring bias is important from a business perspective as well, as it helps the company understand the reasons for poor performance of the model. If the model is not fair, it can lead to poor customer satisfaction and ultimately lost business.
+    
+    - Compliance: Measuring bias also helps to ensure that the model is compliant with any legal or ethical regulations that may be in place. For example, certain discriminatory behavior may be illegal under certain laws such as the Fair Credit Reporting Act or the General Data Protection Regulation.
+
