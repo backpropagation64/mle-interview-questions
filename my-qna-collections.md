@@ -142,6 +142,16 @@ Answering interesting interview questions from different topics (e.g. Bias and V
     1. Use more data: If a model is underfitting, one way to address this is to use more data to train the model. This can help the model to learn more complex patterns in the data, and can help to improve generalization performance.
     2. Use feature engineering: Feature engineering is the process of designing and creating new features from the raw data that can help the model to learn more effectively.
 
+### Feature engineering
+#### Let’s say you have a categorical variable with thousands of distinct values, how would you encode it to use it as a input feature to the model?
+    1. Best choice would be target encoding - proportion/avg of Y for this categorical level. This method replaces the categorical value with the mean of the target variable for that specific value. This approach can be useful when the categorical variable has a high cardinality and when the categorical variable has an ordinal relationship. It's important to note that this technique should be used with caution, as it may lead to overfitting if the data is not properly split.
+     - pros: predictive power, better performance , learning from the labels 
+     - cons - chances of target leakage if not implemented properly 
+
+    2. Good choice could also be the count encoding that has it's indicative of the frequency and has predictive power 
+    
+    I would avoid: one-hot encoding as it would lead to highly sparse dataset and provides no target information. Also label encoding does not suffer from dimentinality but it does not add any predictive power, confusion around the interpretability.
+
 
 ### Regularization 
 
@@ -170,7 +180,12 @@ Answering interesting interview questions from different topics (e.g. Bias and V
     
 
 ### Activation functions related questions
-    (place holder)
+#### Where should we use the sigmoid and where the relu activation functions.
+    The ReLU activation function is typically used in the hidden layers of a neural network, as it helps to introduce non-linearity and alleviate the vanishing gradient problem. It is also computationally efficient, as it only requires a simple threshold operation. The ReLU is commonly used in image and speech recognition, and natural language processing tasks.
+
+    On the other hand, the sigmoid activation function is mostly used in the output layer of a binary classification neural network. Sigmoid function output a probability value between 0 and 1. It is used to predict the probability of an instance belonging to a particular class. Because of this, it's commonly used in logistic regression, where we want to predict the probability of success.
+    
+    It's important to note that the ReLU activation may not be the best choice when the input data is negative, as it will output zero, so in this cases Leaky ReLU, ELU are some of the alternatives.
 
 ### Weight learning (backpropagation)
     (place holder)
@@ -181,7 +196,7 @@ Answering interesting interview questions from different topics (e.g. Bias and V
 ### what are the benefits of mini batching stochastic descent 
     (place holder)
 
-### What is an Autoencoder and of what parts does it consists of?
+### What is an Autoencoder and of what parts does it consist of?
     (place holder)
 
 ### What is the bottleneck in autoencoders
@@ -254,12 +269,13 @@ Answering interesting interview questions from different topics (e.g. Bias and V
 
 #### 5. Let’s say that you’re an advertisement company that wants to increase revenue. You want to effectively match an advertisement to a user. What metric should you prioritize if you want to maximize revenue: click through rate or conversion rate? What machine learning algorithm would you use?
     
-    If you're an advertisement company that wants to increase revenue, you should prioritize the conversion rate as the key metric to maximize revenue. Conversion rate is the percentage of users who take a desired action (such as making a purchase or signing up for a service) after seeing an advertisement. It is a better metric for revenue maximization because it measures the effectiveness of the advertisement in terms of generating revenue, rather than just clicks. A high click-through rate (CTR) can indicate that an ad is well-targeted, but it doesn't necessarily mean that the ad is generating revenue. A user might click on an ad but not convert.
+    there could be different aproaches to this problem. Lets assume that we will use the "Maximize Conversion Rate" solution. If you're an advertisement company that wants to increase revenue, you should prioritize the conversion rate as the key metric to maximize revenue. Conversion rate is the percentage of users who take a desired action (such as making a purchase or signing up for a service) after seeing an advertisement. It is a better metric for revenue maximization because it measures the effectiveness of the advertisement in terms of generating revenue, rather than just clicks. A high click-through rate (CTR) can indicate that an ad is well-targeted, but it doesn't necessarily mean that the ad is generating revenue. A user might click on an ad but not convert.
     There are many machine learning algorithm that can be used to match an advertisement to a user, but some of the most popular ones are:
         - Decision Trees
         - Random Forest 
         - Gradient Boosting
         - Neural Networks
+
 
 
 #### 6. Let’s say you work for a bank that gives out personal loans. Your co-worker develops a model that takes in customer inputs and returns if a loan should be given or not. a. What kind of model did the co-worker develop? b Another co-worker thinks they have developed a better model to predict defaults on the loans. Given that personal loans are monthly installments of payments, how would you measure the difference between the two credit risk models within a timeframe? c. What metrics would you track to measure the success of the new model?
@@ -336,3 +352,14 @@ Answering interesting interview questions from different topics (e.g. Bias and V
     - Random forest regression, on the other hand, is an ensemble method that builds multiple decision trees and combines their predictions to improve the overall accuracy of the model. Random forest is able to capture complex non-linear relationships and interactions between variables, and it is robust to outliers and noise in the data. It also handles high-dimensional data, and can identify the most important features that contribute to the target variable.
     
     In the case of predicting booking prices on Airbnb, the relationship between the independent variables (such as location, number of bedrooms, type of property, etc.) and the dependent variable (booking price) may be complex and non-linear. There may also be interactions between variables that a linear regression model would not be able to capture. Random forest regression is able to handle these complexities and would likely perform better in predicting booking prices on Airbnb.
+
+#### 11. What if you wanted to group two site users together based on their preferences and how will this help build a recommendation model?
+
+    We could use a clustering algorithm to group similar users together. Clustering is a technique used to group similar data points together. There are several different clustering algorithms that could be used for this task, such as k-means, hierarchical clustering, or density-based clustering. These algorithms work by analyzing the attributes of the users, such as:  
+      - browsing history
+      - purchase history
+      - demographic information
+      - other similar attributes
+    
+    Once users are grouped together based on their preferences, this information can be used to build a recommendation model. Additionally, clustering can be used to identify patterns and trends in user preferences, which can be used to develop targeted marketing strategies or to improve the overall user experience on the website.
+

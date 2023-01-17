@@ -24,7 +24,18 @@ Accuracy is a commonly used metric to evaluate the performance of a binary class
 7. How can you avoid overfitting?
 8. What is the purpose of the activation function?
 9. Given 2 sets of inputs x and y calculate the output of relu and sigmoid activation function
+```text
+The rectified linear unit (ReLU) activation function is defined as f(x) = max(0, x), so for input x=0.5, the output of the ReLU function would be 0.5.
+The sigmoid activation function is defined as f(x) = 1 / (1 + e^(-x)), so for input y=2, the output of the sigmoid function would be approximately 0.8807970779778823.
+```
 10. Where should we use the sigmoid and where the relu activation functions 
+```text
+The ReLU activation function is typically used in the hidden layers of a neural network, as it helps to introduce non-linearity and alleviate the vanishing gradient problem. It is also computationally efficient, as it only requires a simple threshold operation. The ReLU is commonly used in image and speech recognition, and natural language processing tasks.
+
+On the other hand, the sigmoid activation function is mostly used in the output layer of a binary classification neural network. Sigmoid function output a probability value between 0 and 1. It is used to predict the probability of an instance belonging to a particular class. Because of this, it's commonly used in logistic regression, where we want to predict the probability of success.
+
+It's important to note that the ReLU activation may not be the best choice when the input data is negative, as it will output zero, so in this cases Leaky ReLU, ELU are some of the alternatives.
+```/
 11. Explain as detailed as possible the pipeline for training a text classification model (text pre-process, feature extraction , model selection , training process)
 12. Let's say you need to create recommendation system for online ads for a sites users. The training dataset consists of user preference and labels data. Explain what type of model will you use and how will you train it?
 ```text
@@ -60,7 +71,16 @@ For example, consider a dataset of emails that are classified as either spam or 
 
 Despite the unrealistic assumption of feature independence, the Naive Bayes model can still be very effective in practice, particularly for classification tasks with a small number of features. This is because the model is simple and easy to implement, and it can perform well with relatively little data.
 ```
-15. What if you wanted to group two site users together based on there preference and how will this help build a recommendation model?
+15. What if you wanted to group two site users together based on their preferences and how will this help build a recommendation model?
+```text
+We could use a clustering algorithm to group similar users together. Clustering is a technique used to group similar data points together. There are several different clustering algorithms that could be used for this task, such as k-means, hierarchical clustering, or density-based clustering. These algorithms work by analyzing the attributes of the users, such as:  
+  - browsing history
+  - purchase history
+  - demographic information
+  - other similar attributes
+
+Once users are grouped together based on their preferences, this information can be used to build a recommendation model. Additionally, clustering can be used to identify patterns and trends in user preferences, which can be used to develop targeted marketing strategies or to improve the overall user experience on the website.
+```
 
 ### Deep Learning
 16. Why do we need multiple hidden layers?
@@ -100,11 +120,18 @@ Adding a very large input layer to a neural network can lead to a number of diff
 Overall, adding a very large input layer to a neural network can lead to improved performance in some cases, but it is important to carefully consider the trade-offs and ensure that the model is properly regularized and optimized.
 ```
 19. What if we don't use any activation function in a deep neural network?
+```text
+If no activation function is used in a deep neural network, the network will simply perform a linear transformation on the input data. Without an activation function, the network will not be able to introduce non-linearity and represent complex relationships between the input and output data. The network will not be able to learn and make predictions on non-linearly separable data, such as images, speech, and natural language.
+Additionally, without the activation function the backpropagation algorithm would not be able to compute the gradients and update the weights, causing the network to fail to learn.
+```
 20. What are the pros and cons of using BiLSTM or RNN layers instead of deep MLP?
 21. Explain what an Auto Encoder is
 
 ### Data Structures
 21. What type of DS does python use for dictionaries?
+```text
+Hash maps
+```
 22. What are the advantages of using a hash map?
 23. What is the time complexity for searching for a value in array?
 
