@@ -3,7 +3,7 @@ I'm preparing for Data Science & MLE interviews. I want to use this chat to go t
 
 ## OOP concepts 
 
-### What is encapsulation in Python?
+### What is encapsulation in OOP?
 - Encapsulation is the bundling of data (attributes) and methods that operate on that data into a single unit (a class).
 - It also refers to **restricting direct access** to some of an object’s components, usually by naming conventions.
 
@@ -23,7 +23,7 @@ print(obj._internal)       # accessible, but intended as protected
 print(obj._MyClass__private)  # name-mangled, not easily accessed
 ```
 
-### What is inheritance in Python?
+### What is inheritance in OOP?
 - Inheritance allows a class (child) to **inherit attributes and methods** from another class (parent).
 - It promotes code reuse and supports hierarchical relationships.
 
@@ -45,6 +45,61 @@ class Dog(Animal):
 d = Dog()
 print(d.speak())  # Output: Bark
 ```
+
+### What is polymorphism in OOP?
+- Polymorphism allows different classes to implement the same method interface in different ways.
+- It enables writing code that works on objects of different types as long as they implement the expected behavior.
+
+#### Example:
+```python
+class Dog:
+    def speak(self):
+        return "Bark"
+
+class Cat:
+    def speak(self):
+        return "Meow"
+
+def animal_sound(animal):
+    print(animal.speak())
+
+animal_sound(Dog())  # Bark
+animal_sound(Cat())  # Meow
+```
+
+### What is abstraction in OOP?
+- Abstraction lets you define a blueprint (interface) for a group of related classes while hiding the implementation details.
+- It helps enforce a contract: every subclass **must implement** certain methods.
+
+#### Real-world Example:
+Imagine building a payment system that can support different payment methods (e.g., PayPal, Credit Card), but the caller shouldn't care how each works internally.
+
+```python
+from abc import ABC, abstractmethod
+
+class PaymentMethod(ABC):
+    @abstractmethod
+    def pay(self, amount):
+        pass
+
+class CreditCard(PaymentMethod):
+    def pay(self, amount):
+        print(f"Paying ${amount} using Credit Card.")
+
+class PayPal(PaymentMethod):
+    def pay(self, amount):
+        print(f"Paying ${amount} using PayPal.")
+
+def checkout(payment_method: PaymentMethod, amount: float):
+    payment_method.pay(amount)
+
+checkout(CreditCard(), 100)  # Paying $100 using Credit Card.
+checkout(PayPal(), 50)       # Paying $50 using PayPal.
+```
+- The PaymentMethod is abstract: it defines a method pay() but does not implement it.
+- Subclasses (CreditCard, PayPal) provide their own implementations.
+- The caller (checkout) doesn’t care which payment method is used — that’s abstraction.
+
 
 
 ## Python basics
@@ -75,6 +130,22 @@ class Counter:
     def increment(cls):
         # class method using `cls`
         cls.count += 1
+```
+
+### What is the difference between `is` and `==` in Python?
+- `==` checks for **value equality** — whether two objects have the same contents.
+- `is` checks for **object identity** — whether two references point to the **same object in memory**.
+
+#### Example:
+```python
+a = [1, 2, 3]
+b = [1, 2, 3]
+
+a == b     # True: same values
+a is b     # False: different objects
+
+c = a
+a is c     # True: same object
 ```
 
 ### What are decorators in Python?
@@ -267,4 +338,133 @@ a = np.array([1, 2, 3])
 b = np.array([4, 5, 6])
 
 c = a + b  # vectorized addition: [5, 7, 9]
+```
+
+## Pandas
+
+### What’s the difference between `.loc[]` and `.iloc[]` in pandas?
+- `.loc[]` is **label-based** indexing: access rows/columns by names or boolean masks.
+- `.iloc[]` is **position-based** indexing: access rows/columns by integer positions.
+
+#### Example:
+```python
+import pandas as pd
+
+df = pd.DataFrame({
+    "name": ["Alice", "Bob"],
+    "age": [25, 30]
+}, index=["a", "b"])
+
+df.loc["a"]     # Access row with label "a"
+df.iloc[0]      # Access first row by position
+```
+
+### What is the difference between `df.apply()` and `df.map()` in pandas?
+- `map()` is used **only on Series** (usually one column) to apply a function **element-wise**.
+- `apply()` works on **both Series and DataFrames** and can apply a function **row-wise or column-wise**.
+
+#### Example of `map()`:
+```python
+df["col"].map(lambda x: x * 2)
+df["col"].apply(lambda x: x * 2)
+df.apply(sum, axis=0)  # sum of each column
+df.apply(sum, axis=1)  # sum of each row
+```
+
+### What are window functions in pandas and how do you use them?
+- **Window functions** perform operations over a sliding window of rows, commonly used for **rolling statistics** or **rankings**.
+
+#### Types of window functions:
+- `rolling()` – fixed-size moving window
+- `expanding()` – growing window
+- `ewm()` – exponentially weighted window
+- `rank()`, `cumsum()`, `shift()` – cumulative/transform window functions
+
+### What are window functions in pandas and how do you use them?
+- **Window functions** perform operations over a sliding window of rows, commonly used for **rolling statistics** or **rankings**.
+
+#### Types of window functions:
+- `rolling()` – fixed-size moving window
+- `expanding()` – growing window
+- `ewm()` – exponentially weighted window
+- `rank()`, `cumsum()`, `shift()` – cumulative/transform window functions
+
+
+#### Example (Rolling Mean):
+```python
+df["rolling_avg"] = df["sales"].rolling(window=3).mean()
+```
+
+```python
+import pandas as pd
+import numpy as np
+
+# Sample data
+data = {
+    "date": pd.date_range(start="2024-01-01", periods=10, freq='D'),
+    "sales": [100, 110, 90, 120, 130, 125, 140, 135, 150, 160]
+}
+df = pd.DataFrame(data)
+
+# Rolling window: moving average over 3 days
+df["rolling_mean"] = df["sales"].rolling(window=3).mean()
+
+# Expanding window: cumulative mean from the start
+df["expanding_mean"] = df["sales"].expanding().mean()
+
+# Exponentially weighted mean with span=3
+df["ewm_mean"] = df["sales"].ewm(span=3, adjust=False).mean()
+
+# Rank of sales
+df["rank"] = df["sales"].rank()
+
+# Cumulative sum
+df["cumsum"] = df["sales"].cumsum()
+
+# Shifted sales (previous day's sales)
+df["prev_day_sales"] = df["sales"].shift(1)
+```
+
+### What does the `pivot()` function do in pandas, and how is it different from `melt()`?
+
+- `pivot()` **reshapes data from long to wide format**, turning unique values from one column into new column headers.
+- `melt()` **reshapes data from wide to long format**, unpivoting column headers into a single column.
+
+#### Example: `pivot()`
+```python
+df.pivot(index="date", columns="product", values="sales")
+df.melt(id_vars="date", value_vars=["A", "B"])
+```
+Turns columns A and B into row entries under a new column variable, with their values in another column.
+In short:
+  -	pivot → wide format (more columns)
+  -	melt → long format (more rows)
+
+### What is the difference between shallow copy and deep copy in Python?
+- A **shallow copy** creates a new object but **copies references** to the original objects inside it.
+- A **deep copy** creates a new object and **recursively copies all nested objects**, so they are fully independent.
+
+#### Example:
+```python
+import copy
+
+original = [[1, 2], [3, 4]]
+shallow = copy.copy(original)
+deep = copy.deepcopy(original)
+
+original[0][0] = 99
+
+print(shallow[0][0])  # 99 (affected)
+print(deep[0][0])     # 1  (unchanged)
+```
+
+### What are Python context managers used for, and how do you create a custom one?
+
+- Context managers handle **setup and cleanup** actions automatically, often used with the `with` statement.
+- Common use cases: managing **files**, **database connections**, **locks**, or **temporary resources**.
+
+#### Example (built-in):
+```python
+with open("file.txt", "r") as f:
+    data = f.read()
 ```

@@ -1,16 +1,58 @@
-# Answering ML Interview questions
-Answering interesting interview questions from different topics (e.g. Bias and Variance, Regulization, NLP, Neural networks, etc). 
+# DS Interview QnA
 
-*Disclaimer: Most of these questions will be answered be ChatGPT and must not been considered 100% correct, so please review the answers and if you disagree please add an issue or contact the author.*
+
+### What is the difference between supervised and unsupervised learning?
+- **Supervised learning** uses labeled data to train models that map inputs to known outputs (e.g., classification, regression).
+- **Unsupervised learning** uses unlabeled data to discover hidden patterns or groupings (e.g., clustering, dimensionality reduction).
+
+#### Key Differences:
+- Supervised learning requires **ground truth labels**; unsupervised does not.
+- Evaluation in supervised learning uses accuracy, precision, recall, etc.; unsupervised uses metrics like silhouette score or domain-based validation.
+
+
+### What is overfitting in machine learning, and how can you prevent it?
+- **Overfitting** happens when a model learns the training data too well, including noise, and performs poorly on unseen data.
+- It leads to low training error but high test error — the model fails to generalize.
+
+#### Prevention techniques:
+- **Cross-validation**
+- **Regularization** (L1, L2)
+- **Early stopping**
+- **Simpler models** or **fewer features**
+- **Pruning** (for trees), **dropout** (for neural nets)
+- **Increasing training data**
+
+### What is the difference between precision and recall?
+- **Precision** measures the proportion of true positives among all predicted positives.  
+  `Precision = TP / (TP + FP)`
+- **Recall** measures the proportion of true positives among all actual positives.  
+  `Recall = TP / (TP + FN)`
+
+#### Key Differences:
+- Precision focuses on **how accurate** the positive predictions are.
+- Recall focuses on **how complete** the positive predictions are.
+- High precision = fewer false positives; high recall = fewer false negatives.
+
+### What is the bias-variance tradeoff in machine learning?
+- The **bias-variance tradeoff** describes the balance between two sources of error that affect model performance on unseen data:
+  - **Bias**: Error from erroneous assumptions in the model (underfitting).
+  - **Variance**: Error from excessive sensitivity to training data (overfitting).
+
+#### Tradeoff:
+- **High bias, low variance**: Simple model, poor on both training and test sets.
+- **Low bias, high variance**: Complex model, great on training but poor on test data.
+- Goal: Find the sweet spot with **low total error** by balancing bias and variance.
+
+
 
 ## Classical Machine Learning
 
 ### Basics
 
 #### Define probability and likelihood.
-    Probability is a measure of how likely an event is to occur, expressed as a number between 0 and 1. For example, the probability of flipping a coin and it landing on heads is 0.5, or 50%.
-  
-    Likelihood is the conditional probability, that is a measure of how likely it is that a given set of observations or data would occur, given a specific hypothesis or model. Like probability, likelihood is expressed as a number between 0 and 1, with higher values indicating a better fit or more plausible hypothesis.
+Probability is a measure of how likely an event is to occur, expressed as a number between 0 and 1. For example, the probability of flipping a coin and it landing on heads is 0.5, or 50%.
+
+Likelihood is the conditional probability, that is a measure of how likely it is that a given set of observations or data would occur, given a specific hypothesis or model. Like probability, likelihood is expressed as a number between 0 and 1, with higher values indicating a better fit or more plausible hypothesis.
 
 #### Define Entropy and Information Gain
     Entropy: Randomness of information being processed.
