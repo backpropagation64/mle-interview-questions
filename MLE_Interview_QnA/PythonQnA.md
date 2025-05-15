@@ -1,6 +1,7 @@
 # Python for DS/MLE Interview QnA
 I'm preparing for Data Science & MLE interviews. I want to use this chat to go through Q&A flashcards only (no deep implementation). Focus on interview-style questions and concise, accurate answers.
 
+
 ## OOP concepts 
 
 ### What is encapsulation in OOP?
@@ -23,6 +24,8 @@ print(obj._internal)       # accessible, but intended as protected
 print(obj._MyClass__private)  # name-mangled, not easily accessed
 ```
 
+
+---
 ### What is inheritance in OOP?
 - Inheritance allows a class (child) to **inherit attributes and methods** from another class (parent).
 - It promotes code reuse and supports hierarchical relationships.
@@ -46,6 +49,8 @@ d = Dog()
 print(d.speak())  # Output: Bark
 ```
 
+
+---
 ### What is polymorphism in OOP?
 - Polymorphism allows different classes to implement the same method interface in different ways.
 - It enables writing code that works on objects of different types as long as they implement the expected behavior.
@@ -67,6 +72,8 @@ animal_sound(Dog())  # Bark
 animal_sound(Cat())  # Meow
 ```
 
+
+---
 ### What is abstraction in OOP?
 - Abstraction lets you define a blueprint (interface) for a group of related classes while hiding the implementation details.
 - It helps enforce a contract: every subclass **must implement** certain methods.
@@ -100,18 +107,19 @@ checkout(PayPal(), 50)       # Paying $50 using PayPal.
 - Subclasses (CreditCard, PayPal) provide their own implementations.
 - The caller (checkout) doesn’t care which payment method is used — that’s abstraction.
 
-
-
+---
 ## Python basics
 
 ### What is the difference between a function and a method in Python?
 - A **function** is an independent block of code defined using `def` and not tied to any object.  
 - A **method** is a function that is associated with an object (usually defined within a class) and takes `self` or `cls` as the first parameter.
 
+---
 ### What are the `self` and `cls` parameters in Python?
 - `self` refers to the instance of the class and is used in **instance methods** to access or modify object attributes.
 - `cls` refers to the class itself and is used in **class methods** to access or modify class-level data.
 
+---
 ### What’s the difference between `@classmethod` and `@staticmethod`?
 `@classmethod` receives the class (`cls`) as the first argument and can modify class state.  
 `@staticmethod` receives no implicit first argument and behaves like a regular function inside the class.
@@ -132,6 +140,7 @@ class Counter:
         cls.count += 1
 ```
 
+---
 ### What is the difference between `is` and `==` in Python?
 - `==` checks for **value equality** — whether two objects have the same contents.
 - `is` checks for **object identity** — whether two references point to the **same object in memory**.
@@ -148,6 +157,7 @@ c = a
 a is c     # True: same object
 ```
 
+---
 ### What are decorators in Python?
 - Decorators are functions that modify the behavior of other functions or methods without changing their code.
 - They are often used for **logging**, **access control**, **timing**, and **caching**.
@@ -172,6 +182,7 @@ Hello!
 After function call
 ```
 
+---
 ### What is a thread in Python?
 - A thread is the smallest unit of execution within a process.
 - Multiple threads in a process share the same memory and resources.
@@ -183,6 +194,7 @@ After function call
 - Performing background tasks (e.g., logging, downloading)
 - Running I/O operations without blocking the main program
 
+---
 ### What is the difference between multithreading and multiprocessing in Python?
 
 - **Multithreading** uses multiple threads within a single process.
@@ -215,6 +227,7 @@ t.start()
 t.join()
 ```
 
+---
 ### What are `async` and `await` in Python?
 - `async` and `await` are used to write asynchronous, non-blocking code using coroutines.
 - Useful for **I/O-bound** tasks like network calls, file operations, or APIs where waiting would otherwise block the program.
@@ -235,6 +248,7 @@ async def say_hello():
 asyncio.run(say_hello())
 ```
 
+---
 ### What is a simple example of a generator function in Python?
 - A generator function uses the `yield` keyword to return values one at a time.
 - It produces values lazily and maintains state between calls.
@@ -253,6 +267,7 @@ print(next(gen))  # 2
 print(next(gen))  # 3
 ```
 
+---
 ### What is the difference between list comprehensions and generator expressions in Python?
 - **List comprehensions** return a full list in memory.
 - **Generator expressions** return an iterator that yields items lazily (one at a time).
@@ -274,6 +289,7 @@ squares = [x**2 for x in range(5)]  # [0, 1, 4, 9, 16]
 squares_gen = (x**2 for x in range(5))  # use next() or a loop to consume
 ```
 
+---
 ### What is Pydantic and why is it used?
 - Pydantic is a Python library for **data validation and settings management** using Python type hints.
 - It ensures that input data matches specified types and structures, raising clear validation errors when it doesn't.
@@ -292,6 +308,7 @@ user = User(name="Bob", age="30")  # also valid, auto-converts string to int
 
 ```
 
+---
 ### How does Pydantic handle nested models?
 - Pydantic supports nested models by allowing one `BaseModel` to be used as a field in another.
 - It automatically validates and parses the nested structure.
@@ -311,6 +328,7 @@ class User(BaseModel):
 user = User(name="Alice", address={"city": "New York", "zip_code": "10001"})
 ```
 
+---
 ### What is the difference between a NumPy array and a pandas DataFrame?
 - A **NumPy array** is a multidimensional, fixed-type array for numerical computation.
 - A **1D NumPy array** is conceptually similar to a **mathematical vector**
@@ -339,6 +357,7 @@ b = np.array([4, 5, 6])
 
 c = a + b  # vectorized addition: [5, 7, 9]
 ```
+---
 
 ## Pandas
 
@@ -359,6 +378,7 @@ df.loc["a"]     # Access row with label "a"
 df.iloc[0]      # Access first row by position
 ```
 
+---
 ### What is the difference between `df.apply()` and `df.map()` in pandas?
 - `map()` is used **only on Series** (usually one column) to apply a function **element-wise**.
 - `apply()` works on **both Series and DataFrames** and can apply a function **row-wise or column-wise**.
@@ -380,6 +400,7 @@ df.apply(sum, axis=1)  # sum of each row
 - `ewm()` – exponentially weighted window
 - `rank()`, `cumsum()`, `shift()` – cumulative/transform window functions
 
+---
 ### What are window functions in pandas and how do you use them?
 - **Window functions** perform operations over a sliding window of rows, commonly used for **rolling statistics** or **rankings**.
 
@@ -425,6 +446,7 @@ df["cumsum"] = df["sales"].cumsum()
 df["prev_day_sales"] = df["sales"].shift(1)
 ```
 
+---
 ### What does the `pivot()` function do in pandas, and how is it different from `melt()`?
 
 - `pivot()` **reshapes data from long to wide format**, turning unique values from one column into new column headers.
@@ -440,6 +462,7 @@ In short:
   -	pivot → wide format (more columns)
   -	melt → long format (more rows)
 
+---
 ### What is the difference between shallow copy and deep copy in Python?
 - A **shallow copy** creates a new object but **copies references** to the original objects inside it.
 - A **deep copy** creates a new object and **recursively copies all nested objects**, so they are fully independent.
@@ -458,6 +481,7 @@ print(shallow[0][0])  # 99 (affected)
 print(deep[0][0])     # 1  (unchanged)
 ```
 
+---
 ### What are Python context managers used for, and how do you create a custom one?
 
 - Context managers handle **setup and cleanup** actions automatically, often used with the `with` statement.
