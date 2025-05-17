@@ -18,12 +18,12 @@ It is important to keep in mind that this approach will only work if the supervi
 
 Accuracy is a commonly used metric to evaluate the performance of a binary classification model, but it is not always the best metric to use. Accuracy is defined as the number of correct predictions made by the model divided by the total number of predictions made. It is a simple and straightforward metric to compute, but it can be misleading if the classes in the dataset are imbalanced. For example, if the dataset contains 99% negative examples and 1% positive examples, a model that always predicts negative would have an accuracy of 99%, even though it is not making any useful predictions. In cases where the classes are imbalanced, it is often more informative to use metrics that take into account the class distribution, such as precision, recall, and the F1 score. These metrics give a more detailed view of the model's performance, and can be more useful for evaluating the model's effectiveness. It is important to consider the context in which the model will be used when choosing an evaluation metric. For example, if the model is being used to predict whether a patient has a certain disease, false negatives (predictions of "no disease" when the patient actually has the disease) may be more concerning than false positives, in which case, recall might be a more important metric to focus on.
 
-4. Let a dataset with thousands of features. How do you decide what feature to keep that are more useful when training a model?
-5. Explain how SVM works.
-6. Explain L1 and L2 regularization.
-7. How can you avoid overfitting?
-8. What is the purpose of the activation function?
-9. Given 2 sets of inputs x and y calculate the output of relu and sigmoid activation function
+1. Let a dataset with thousands of features. How do you decide what feature to keep that are more useful when training a model?
+2. Explain how SVM works.
+3. Explain L1 and L2 regularization.
+4. How can you avoid overfitting?
+5. What is the purpose of the activation function?
+6. Given 2 sets of inputs x and y calculate the output of relu and sigmoid activation function
 
 
 The rectified linear unit (ReLU) activation function is defined as f(x) = max(0, x), so for input x=0.5, the output of the ReLU function would be 0.5.
